@@ -1,6 +1,3 @@
-
-
-
 <div class="searchbar-container px-4 z-10"></div>
 <div class="navigation-container px-4"></div>
 <div class="w-full inline-block py-5 relative">
@@ -21,7 +18,15 @@
         experienceKey: "healthcare-professional",
         businessId: "3145037",
         experienceVersion: "STAGING",
-
+       search: {
+          verticalKey: "healthcare-professional",
+          //defaultInitialSearch: " ",
+           limit: 10,
+            universalLimit: {
+                healthcare_facilities: 3,
+                healthcare_professionals: 3
+            },
+        },
 
         verticalPages: [
             {
@@ -93,35 +98,32 @@
 
 
         ],
-search: {
-        verticalKey: "healthcare_professionals",
-        defaultInitialSearch: "doctors",
-        //limit: 
-      },
-
+       
         onReady: function () {
 
             this.addComponent("SearchBar", {
                 container: ".searchbar-container",
                 allowEmptySearch: false,
+                searchText: "Search",
+                   query: "",
                 geolocationOptions: {
                     timeout: 500,
                     maximumAge: 300000,
                     enableHighAccuracy: false
                 },
-                placeholderText: "Enter doctor name or hospital",
+                
                 geolocationTimeoutAlert: {
                     enabled: true,
                     message: "We are unable to determine your location"
                 },
-                 voiceSearch: {
-    // Optional, whether or not voice search is enabled
-    enabled: true,
-    // Optional, provide custom mic icon url to override the voice start icon
-    customMicIconUrl: "",
-    // Optional, provide custom listening icon url to override the voice stop icon
-    customListeningIconUrl: ""
-  }
+                voiceSearch: {
+                    // Optional, whether or not voice search is enabled
+                    enabled: true,
+                    // Optional, provide custom mic icon url to override the voice start icon
+                    customMicIconUrl: "",
+                    // Optional, provide custom listening icon url to override the voice stop icon
+                    customListeningIconUrl: ""
+                }
             });
 
             this.addComponent("Navigation", {
@@ -224,14 +226,15 @@ search: {
                             cardType: "Standard",
                             dataMappings: {
                                 title: (item) => item.name,
-                                details: (item) => item.answer,
-                                url: "#"
+                                subtitle: (item) => "<span style='color:blue; font-size:16px;'>" + "Accepting New Patients:-" + "</span>" + item.acceptingNewPatients + "<br>" + "<span style='color:blue; font-size:16px;'>" + "Rating:-" + "</span>" + item.c_rating +
+                                    "<br>" + "<span style='color:blue; font-size:16px;'>" + "Phone:-" + "</span>" + item.mainPhone + "<br>" + "<span style='color:blue; font-size:16px;'>" + "Doctors Works:-" + "</span>" + item.c_doctorList,
+                                url: (item) => item.slug
                             },
                             callsToAction: [
                                 {
                                     label: "Learn More",
                                     icon: "",
-                                    url: "#",
+                                    url: (item) => item.slug,
                                     analyticsEventType: "CTA_CLICK",
                                     target: "_self"
                                 }
