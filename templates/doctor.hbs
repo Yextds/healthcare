@@ -1,0 +1,197 @@
+---
+{
+"stream": {
+"$id": "doctor",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"healthcareProfessional"
+]
+},
+"fields": [
+"id",
+"uid",
+"meta",
+"name",
+"npi",
+"mainPhone",
+"address",
+"c_dOB",
+"languages",
+"gender",
+"hours",
+"description",
+"photoGallery",
+"c_doctorCategory",
+"c_workAt",
+"c_rating",
+"degrees",
+"educationList",
+"certifications",
+"acceptingNewPatients",
+"priceRange",
+"slug"
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "{{slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content=Category page for {{name}}.>
+    {{>head}}
+    {{>schema-productCategory}}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  
+   
+
+    <div class="w-full">
+        <div class="container mx-auto flex flex-wrap">
+            <div class="w-full md:w-1/4 px-4">
+                <div class="relative w-full pt-[100%] border border-gray-300 overflow-hidden">
+                    <img class="w-full absolute top-0 left-0 object-cover object-top h-full" src="{{photoGallery.[0].image.url}}">
+                </div>
+            </div>
+            <div class="w-full md:w-3/4 px-4 pt-5 md:pt-0">
+                <h3 class="font-bold text-xl mb-5">Personal Informations</h3>
+                <table class="border-collapse w-full max-w-lg text-sm md:text-base">
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Name :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            No Of Experience :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{c_experience}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            DOB :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{c_dOB}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Phone No :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{mainPhone}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 text-gray-500">
+                            Work At :-
+                        </td>
+                        <td class="py-2 pl-4">
+                            {{c_workAt}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="w-full px-4 my-10">
+                <table class="border-collapse w-full text-sm md:text-base">
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Address :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{address}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Details :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{description}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Rating :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{c_rating}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Price Range :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{priceRange}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Speciaities In :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{c_doctorCategory}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Accepting New Patients :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{acceptingNewPatients}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Degrees :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{degrees}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Education List :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{educationList}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 text-gray-500">
+                            Certifications :-
+                        </td>
+                        <td class="py-2 pl-4">
+                            {{certifications}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+   
+</body>
+
+</html>

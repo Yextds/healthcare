@@ -1,0 +1,50 @@
+---
+{
+"urlFormat": "index.html"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content={{richTextDescription}}>
+    {{>head}}
+    {{>schema-product}}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    {{!--
+    <link rel="stylesheet" href="../src/style.css"> --}}
+    <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+    <script src="https://assets.sitescdn.net/answers/v1/answerstemplates.compiled.min.js"></script>
+    <script src="https://assets.sitescdn.net/answers/v1/answers.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    {{!--
+    <link rel="stylesheet" type="text/css" href="https://assets.sitescdn.net/answers/v1/answers.css" /> --}}
+    <link rel="stylesheet" href="../src/global.css">
+
+
+    <script>
+        function formatDirectAnswer(fieldName, fieldType, value) {
+            if (fieldType == "phone") {
+                return value
+
+            }
+            return value;
+        }
+    </script>
+</head>
+
+<body>
+
+ <div class="mt-5 mx-5">  
+    {{>indexanswer}}
+
+</div>
+ 
+</body>
+
+</html>

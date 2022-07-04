@@ -1,0 +1,130 @@
+---
+{
+"stream": {
+"$id": "events",
+"source": "knowledgeGraph",
+"destination": "pages",
+"filter": {
+"entityTypes": [
+"event"
+]
+},
+"fields": [
+"id",
+"uid",
+"meta",
+"name",
+"linkedLocation",
+"venueName",
+"time",
+"performers",
+"ageRange",
+"isTicketedEvent",
+"photoGallery",
+"slug"
+
+
+],
+"localization": {
+"locales": ["en"]
+}
+},
+"urlFormat": "{{slug}}"
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content=Category page for {{name}}.>
+    {{>head}}
+    {{>schema-productCategory}}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style.css">
+
+</head>
+
+<body>
+    
+    <div class="w-full pb-10">
+        <div class="container mx-auto flex flex-wrap">
+            <div class="w-full md:w-1/2 px-4">
+                <div class="relative w-full overflow-hidden">
+                    <img class="w-full border border-gray-300"
+                        src="{{photoGallery.[0].image.url}}">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 px-4 mt-5 md:mt-0">
+                <h3 class="font-bold text-xl mb-5">Event Informations</h3>
+                <table class="border-collapse w-full max-w-lg text-sm md:text-base">
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Name :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            No Of Experience :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{linkedLocation}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            DOB :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{venueName}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Phone No :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{time}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Phone No :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{performers}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-b border-b-gray-500 py-2 text-gray-500">
+                            Phone No :-
+                        </td>
+                        <td class="border-b border-b-gray-500 py-2 pl-4">
+                            {{ageRange}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 text-gray-500">
+                            Work At :-
+                        </td>
+                        <td class="py-2 pl-4">
+                            {{isTicketedEvent}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    {{>footer}}
+
+</body>
+
+</html>
